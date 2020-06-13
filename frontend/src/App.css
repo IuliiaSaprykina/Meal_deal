@@ -33,3 +33,56 @@
     padding: 20px;
     border-radius: 5px;
 }
+
+.recipe-list {
+    display: flex;
+    list-style-type: none;
+    flex-flow: row wrap;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding-left: 0;
+}
+
+.recipe-card{
+    text-align: center;
+    width: 500px;
+    height: 400px;
+    margin: 5px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 6px #295d1a;
+    background-color: #9fc5a0;
+}
+
+.recipe-card-image{
+    position: relative;
+    /* left: 6.5%; */
+    width: 350px;
+    height: 280px;
+    margin: 10px;
+    text-align: center;
+}
+
+.search-form input{
+    font-size: 20px;
+    margin: 2%;
+    margin-left: 0;
+    border-radius: 6px;
+}
+
+.search-form button{
+    font-size: 20px;
+    border-radius: 6px;
+}
+
+.search-form {
+    margin: 5%;
+    margin-bottom: 1%;
+}
+
+.go-home-button{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}

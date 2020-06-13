@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_021425) do
+ActiveRecord::Schema.define(version: 2020_06_12_233105) do
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "api_key"
+    t.string "label"
+    t.text "image"
+    t.text "url"
+    t.integer "calories"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "user_recipes", force: :cascade do |t|
     t.integer "user_id", null: false
