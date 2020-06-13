@@ -28,7 +28,7 @@ export default class App extends Component {
       .then(result => {
         localStorage.setItem('token', result.token);
         localStorage.setItem('user_id', result.user.id);
-        this.setState({uuser: result.user})
+        this.setState({user: result.user})
 
       })
   }

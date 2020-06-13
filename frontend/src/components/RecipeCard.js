@@ -7,7 +7,7 @@ export default function RecipeCard (props) {
         <li className="recipe-card">
             <h2>{label}</h2>
             <p>Calories per meal: {x}</p>
-            <img src={image} alt=""/>
+            <img className="recipe-card-image" src={image} alt=""/>
         </li>
     )
 }
