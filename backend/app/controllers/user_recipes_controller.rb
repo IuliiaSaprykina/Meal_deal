@@ -2,12 +2,13 @@ class UserRecipesController < ApplicationController
     before_action :authenticate, only: [:index, :create]
 
     def index
-        @user_recipes = UserRecipe.all 
+        @user_recipes = UserRecipe.all
         
         render json: @user_recipes
     end
 
     def create
+        # byebug
         @user_recipe = UserRecipe.create(user_recipes_params)
 
         render json: { user_recipe: @user_recipe }
@@ -29,6 +30,7 @@ class UserRecipesController < ApplicationController
     private
 
     def user_recipes_params
-        params.require(:recipe).permit(:recipe_id).merge(user_id: @user_id)
+        params.require(:userRecipe).permit(:recipe_id, :user_id)
+        # .merge(user_id: @user_id)
     end
 end

@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-    before_action :authenticate, only: [:index, :create]
+    # before_action :authenticate, only: [:index, :create]
 
     def index
         @recipes = Recipe.all
@@ -16,11 +16,11 @@ class RecipesController < ApplicationController
 
     def create
         @recipe = Recipe.create({
-            api_key: params[:api_key],
-            label: params[:label],
-            image: params[:image],
-            url: params[:url],
-            calories: params[:calories]
+            idMeal: params[:idMeal],
+            strMeal: params[:strMeal],
+            strInstructions: params[:strInstructions],
+            strYoutube: params[:strYoutube],
+            strMealThumb: params[:strMealThumb]
         })
 
         render json: @recipe

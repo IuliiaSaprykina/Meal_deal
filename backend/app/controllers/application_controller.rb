@@ -20,11 +20,6 @@ class ApplicationController < ActionController::API
         payload = { user_id: @user.id }
         secret = Rails.application.secrets.secret_key_base
         token = JWT.encode(payload, secret)
-
-        # render json: {
-        #         message: "Success user #{@user.username} has been created"
-        #         token: token
-        #     }
     end
     
 end

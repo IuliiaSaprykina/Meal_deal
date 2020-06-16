@@ -6,10 +6,12 @@ class AuthenticationController < ApplicationController
         if @user
 
             if @user.authenticate(params[:password])
+                # byebug
                 token = createToken(@user)
 
                 render json: {
-                    token: token,
+                    user_id: @user.id,
+                    token: token
                     # recipes: @user.recipes
                 }
             else

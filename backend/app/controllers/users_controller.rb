@@ -21,7 +21,8 @@ class UsersController < ApplicationController
 
             render json: {
                 message: "Success user #{@user.username} has been created",
-                token: token
+                token: token,
+                user_id: @user.id
             }
         else
             render json: { message: @user.errors.messages }

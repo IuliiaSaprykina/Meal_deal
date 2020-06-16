@@ -13,19 +13,21 @@
 ActiveRecord::Schema.define(version: 2020_06_12_233105) do
 
   create_table "recipes", force: :cascade do |t|
-    t.string "api_key"
-    t.string "label"
-    t.text "image"
-    t.text "url"
-    t.integer "calories"
+    t.string "idMeal"
+    t.string "strMeal"
+    t.text "strInstructions"
+    t.text "strYoutube"
+    t.integer "strMealThumb"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_recipes", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.integer "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_user_recipes_on_recipe_id"
     t.index ["user_id"], name: "index_user_recipes_on_user_id"
   end
 
@@ -36,5 +38,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_233105) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "user_recipes", "recipes"
   add_foreign_key "user_recipes", "users"
 end

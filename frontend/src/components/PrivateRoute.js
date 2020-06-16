@@ -5,6 +5,6 @@ import { Route, Redirect } from "react-router-dom"
 
 export default function PrivateRoute (props) {
     return <Route {...props} render={(routerProps) => {
-        return localStorage.token ? <Home {...routerProps}/> : <Redirect to="/login"/>
+        return localStorage.token ? <Home {...routerProps} addRecipe={props.addRecipe} addToFavorite={props.addToFavorite}/> : <Redirect to="/login"/>
     }} />
 }
