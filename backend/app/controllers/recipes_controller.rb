@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+    before_action :authenticate, only: [:index, :create]
 
     def index
         @recipes = Recipe.all
