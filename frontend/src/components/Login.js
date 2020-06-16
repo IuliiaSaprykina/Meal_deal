@@ -40,8 +40,10 @@ export default class Login extends Component {
                     throw new Error("Check your username or password")
                 }
             })
+            // .then(result => console.log(result.user_id)
             .then(result => {
                 localStorage.setItem("token", result.token);
+                localStorage.setItem("user_id", result.user_id);
                 this.setState({initailizeState})
             })
             .then(() => this.props.history.push('/'))

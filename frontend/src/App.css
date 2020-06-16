@@ -1,6 +1,10 @@
 .App{
     display: flex;
+}
 
+body{
+    background-color: #a7b3ec;
+    background-image: url("https://images.unsplash.com/photo-1447078806655-40579c2520d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
 }
 
 .authenticate{
@@ -15,12 +19,12 @@
 
 .new-user-form{
     text-align: center;
-    background-color: white;
+    background-color: #898c90b8;;
     margin: auto;
     margin-top: 10%;
     width: 400px;
     height: 500px;
-    box-shadow: 5px 6px 30px -10px rgb(8, 5, 144);
+    box-shadow: 5px 6px 30px -10px #24292e;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -31,17 +35,25 @@
 
 .login-form {
     text-align: center;
-    background-color: white;
+    background-color: #898c90b8;;
     margin: auto;
     margin-top: 10%;
     width: 400px;
     height: 500px;
-    box-shadow: 5px 6px 30px -10px rgb(8, 5, 144);
+    box-shadow: 5px 6px 30px -10px #24292e;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: 20px;
     border-radius: 5px;
+}
+.login-form a{
+    color: #24292e;
+}
+
+label{
+    color: #24292e;
+    font-size: large;
 }
 
 .recipe-list {
@@ -54,14 +66,24 @@
     padding-left: 0;
 }
 
-.recipe-card{
+.front-recipe-card{
     text-align: center;
     width: 550px;
     height: 450px;
     margin: 5px;
     border-radius: 20px;
-    box-shadow: 0 0 10px 6px #295d1a;
-    background-color: #9fc5a0;
+    box-shadow: 0 0 10px 6px #24292e;
+    background-color: #898c9087;
+}
+.back-recipe-card{
+    text-align: center;
+    width: 550px;
+    height: 450px;
+    margin: 5px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 6px #24292e;
+    background-color: #898c90cc;
+    text-align: center;
 }
 
 .recipe-card-image{
@@ -95,4 +117,39 @@
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 6px;
+}
+
+.grey.darken-3 {
+  background-color: #48565f!important;
+}
+
+.search-form{
+    width: 60%;
+    text-align: center;  
+    left: 15%;
+    position: relative;
+}
+
+.back-recipe-card p{
+    padding: 5px;
+}
+
+.back-recipe-card a{
+    color: #d0dee4;
+    font-size: large;
+}
+
+.search-form h3{
+    color: wheat;
+    font-size: 40px;
+}
+
+nav a{
+    color: wheat;
+    font-size: 20px;
+}
+
+nav ul a{
+    color: wheat;
+    font-size: 20px;
 }
