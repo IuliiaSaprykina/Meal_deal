@@ -1,26 +1,14 @@
-class UserRecipesController < ApplicationController    
+class UserRecipesController < ApplicationController 
+    before_action :authenticate, only: [:index, :create]
+
     def index
         @user_recipes = UserRecipe.all 
-        authorization_header = request.headers["Authorization"]
-        if !authorization_header
-            render json: { error: "No token" }, status: :unauthorized
-        else
-            token = authorization_header.split(" ")[1]
-            secret = Rails.application.secrets.secret_key_base
-            begin
-                payload = JWT.decode(token, secret)[0]
-                render json: { user_recipes: @user_recipes, jwt: token }
-            rescue
-                render json: { error: "Invalid token" }, status: :unauthorized
-            end
-        end
+        
+        render json: @user_recipes
     end
 
     def create
-        @user_recipe = UserRecipe.create(
-            user_id: params[:user_id],
-            recipe_id: params[:wish_id]
-        )
+        @user_recipe = UserRecipe.create(user_recipes_params)
 
         render json: { user_recipe: @user_recipe }
     end
@@ -36,5 +24,11 @@ class UserRecipesController < ApplicationController
         @user_recipe.destroy
 
         render json: { message: "Your recipe removed" }
+    end
+
+    private
+
+    def user_recipes_params
+        params.require(:recipe).permit(:recipe_id).merge(user_id: @user_id)
     end
 end

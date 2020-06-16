@@ -3,6 +3,16 @@
 
 }
 
+.authenticate{
+    display: flex;
+    list-style-type: none;
+    flex-flow: row wrap;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding-left: 0;
+}
+
 .new-user-form{
     text-align: center;
     background-color: white;
@@ -46,8 +56,8 @@
 
 .recipe-card{
     text-align: center;
-    width: 500px;
-    height: 400px;
+    width: 550px;
+    height: 450px;
     margin: 5px;
     border-radius: 20px;
     box-shadow: 0 0 10px 6px #295d1a;
