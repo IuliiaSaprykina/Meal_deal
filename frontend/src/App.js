@@ -82,10 +82,8 @@ export default class App extends Component {
         user_id: +userId
       }
     }
-    console.log(newFavorite)
-    this.setState({
-      favorites: [...this.state.favorites, newFavorite]
-    })
+    
+    // this.setState({favorites: [...this.state.favorites, newFavorite]})
 
     fetch(favoritesUrl, {
       method: 'POST',
@@ -96,7 +94,7 @@ export default class App extends Component {
       body: JSON.stringify(newFavorite)
     })
       .then(response => response.json())
-      // .then(console.log)
+      .then((recipe) => this.setState({favorites: [...this.state.favorites, recipe.user_recipe]}))
   }
 
   addRecipe = (recipe) => {
@@ -116,10 +114,19 @@ export default class App extends Component {
       body: JSON.stringify(newRecipe)
     })
       .then(response => response.json())
-      // .then(console.log)
       .then(recipe => {
         this.addToFavorite(recipe.id, localStorage.getItem("user_id"))
       })
+  }
+
+  deleteFavorite = (id) => {
+    let favorites = this.state.favorites.filter(fav => fav.id !== id)
+
+    this.setState({favorites})
+
+    fetch(favoritesUrl + id, {
+      method: "DELETE"
+    })
   }
 
   render(){
@@ -128,7 +135,7 @@ export default class App extends Component {
         <Switch>
           <Route path="/login" render={(props) => <Login {...props} />} />
           <Route path="/signup" render={(props) => <Signup {...props} />} />
-          <Route path="/favorites" render={(props) => <Favorites favorites={this.state.favorites} recipes={this.state.recipes} users={this.state.users} {...props}/>} />
+          <Route path="/favorites" render={(props) => <Favorites users={this.state.users} favorites={this.state.favorites} deleteFavorite={this.deleteFavorite}/>} />
           <PrivateRoute exact path="/" addRecipe={this.addRecipe} addToFavorite={this.addToFavorite} favorites={this.state.favorites}/>
           <Route render={() => <Redirect to="/" />} />
         </Switch>
