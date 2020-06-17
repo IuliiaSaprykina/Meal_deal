@@ -1,3 +1,4 @@
+
 .App{
     display: flex;
 }
@@ -113,12 +114,13 @@ label{
 }
 .back-favorite-recipe-card{
     text-align: center;
-    width: 700px;
-    height: 600px;
+    width: 100%;
+    /* width: 700px; */
+    height: 900px;
     margin: 5px;
     border-radius: 20px;
     box-shadow: 0 0 10px 6px #24292e;
-    background-color: #898c90cc;
+    background-color: #898c90e3;
     text-align: center;
 }
 
@@ -227,4 +229,9 @@ nav ul a{
     position: absolute;
     left: 10%;
     top: 15%;
+}
+
+.player{
+    position: relative;
+    left: 25%;
 }

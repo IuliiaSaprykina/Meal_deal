@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios"
 import RecipeList from './RecipeList';
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
+import ScrollUpButton from "react-scroll-up-button";
 
 export default function Home (props){
   
@@ -41,6 +42,7 @@ export default function Home (props){
               <button type="submit" >Search</button>
             </form>
         <RecipeList recipes={recipe} {...props}/>
+        <ScrollUpButton />
       </div>
     </div>
   );
