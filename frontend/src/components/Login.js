@@ -19,6 +19,7 @@ export default class Login extends Component {
     componentDidMount() {
         if (localStorage.token) {
             localStorage.removeItem("token");
+            localStorage.removeItem("user_id");
         }
     }
 

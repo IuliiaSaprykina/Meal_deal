@@ -32,27 +32,28 @@ import Favorites from "./components/Favorites";
 })('tabs', 'tabid');
 
 const recipesUrl = "http://localhost:3000/recipes/";
-const favoritesUrl = "http://localhost:3000/user_recipes/"
+const favoritesUrl = "http://localhost:3000/user_recipes/";
+const usersUrl = "http://localhost:3000/users/";
 
 
 export default class App extends Component {
 
   state = {
     favorites: [],
-    recipes: []
+    recipes: [], 
+    users: []
   }
 
   componentDidMount(){
     this.getRecipes();
     this.getFavorites();
+    this.getUsers();
   }
 
   getRecipes = () => {
     fetch(recipesUrl)
     .then(response => response.json())
-    .then(response => this.setState({
-      recipes: response
-    }))
+    .then(recipes => this.setState({recipes}))
   }
 
   getFavorites = () => {
@@ -65,30 +66,37 @@ export default class App extends Component {
       }
     })
       .then(response => response.json())
-      .then(result => this.setState({favorites: result}))
+      .then(favorites => this.setState({favorites}))
+  }
+
+  getUsers = () => {
+    fetch(usersUrl)
+      .then(response => response.json())
+      .then(users => this.setState({users}))
   }
 
   addToFavorite = (recipeId, userId) => {
-    const favorite = {
+    const newFavorite = {
       userRecipe:{
         recipe_id: recipeId,
         user_id: +userId
       }
     }
-    console.log(favorite)
+    console.log(newFavorite)
     this.setState({
-      favorites: [...this.state.favorites, favorite]
+      favorites: [...this.state.favorites, newFavorite]
     })
 
     fetch(favoritesUrl, {
       method: 'POST',
       headers: {
         'Content-type' : 'application/json',
-        'Accept': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem("token")}`
       },
-      body: JSON.stringify(favorite)
+      body: JSON.stringify(newFavorite)
     })
+      .then(response => response.json())
+      // .then(console.log)
   }
 
   addRecipe = (recipe) => {
@@ -96,14 +104,19 @@ export default class App extends Component {
       recipes: [...this.state.recipes, recipe]
     })
 
+    let newRecipe = {
+      ...recipe
+    }
+
     fetch(recipesUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(recipe)
+      body: JSON.stringify(newRecipe)
     })
       .then(response => response.json())
+      // .then(console.log)
       .then(recipe => {
         this.addToFavorite(recipe.id, localStorage.getItem("user_id"))
       })
@@ -115,8 +128,8 @@ export default class App extends Component {
         <Switch>
           <Route path="/login" render={(props) => <Login {...props} />} />
           <Route path="/signup" render={(props) => <Signup {...props} />} />
-          <Route path="/favorites" render={(props) => <Favorites favorites={this.state.favorites} recipes={this.state.recipes} {...props} />} />
-          <PrivateRoute exact path="/" addRecipe={this.addRecipe} addToFavorite={this.addToFavorite}/>
+          <Route path="/favorites" render={(props) => <Favorites favorites={this.state.favorites} recipes={this.state.recipes} users={this.state.users} {...props}/>} />
+          <PrivateRoute exact path="/" addRecipe={this.addRecipe} addToFavorite={this.addToFavorite} favorites={this.state.favorites}/>
           <Route render={() => <Redirect to="/" />} />
         </Switch>
       </div>

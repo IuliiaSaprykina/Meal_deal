@@ -12,9 +12,9 @@ export default function RecipeCard ({recipe, addRecipe, addToFavorite}) {
 
     const handleRecipeToFavorites = (event) => {
         event.stopPropagation();
-        // console.log(event)
         addRecipe(recipe);
-        // addToFavorite(recipe.idMeal, localStorage.getItem("user_id"))
+        // console.log(recipe)
+
     }
 
     return(

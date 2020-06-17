@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
     end
 
     def create
+
         @recipe = Recipe.create({
             idMeal: params[:idMeal],
             strMeal: params[:strMeal],
