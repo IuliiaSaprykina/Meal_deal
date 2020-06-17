@@ -2,18 +2,22 @@ import React, { useState } from "react";
 import ReactCardFlip from 'react-card-flip';
 
 export default function FavoriteItem (props) {
+
+    const showFavorite = props.showFavorite
+
     const [isFlipped, setIsFlipped] = useState(false);
     const handleClick = () => {
         setIsFlipped(!isFlipped);
     }
+    // console.log(props)
+    // console.log(props.recipes)
+    // const {favorite} = props;
+    // const { recipes } = props.recipes;
+    // console.log("favorite:", favorite)    
+    // console.log("recipes:", recipes)
+    // console.log("props:", props)
 
-    const {favorite} = props;
-    const { recipes } = props.recipes;
-    console.log("favorite:", favorite)    
-    console.log("recipes:", recipes)
-    console.log("props:", props.favorites)
-
-    // const lookThroughRecipes = props.recipes.filter(recipe => recipe.id === props.favorite.recipe_id)
+    // const lookThroughRecipes = props.recipes.filter(recipe => recipe.id === props.recipe_id)
     // console.log(lookThroughRecipes)
     const {strMeal, strInstructions, strYoutube, strMealThumb} = props.recipes
     
