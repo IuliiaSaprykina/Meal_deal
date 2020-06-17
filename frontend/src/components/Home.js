@@ -5,13 +5,9 @@ import Navbar from "./Navbar"
 
 export default function Home (props){
   
-  // const apiKey = "5be7b142c0faea901956bd642929df69";
-  // const apiId = "1ba68463";
-
-  // const addToFavorites = props.addToFavorites
   const [recipe, setRecipe] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('chicken');
+  const [query, setQuery] = useState('');
   const mealUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
 
   useEffect(() => {
@@ -21,8 +17,8 @@ export default function Home (props){
 
   const getRecipe = () => {
       axios.get(mealUrl)
-      // .then(response => console.log(response.data.meals))
-        .then(response => setRecipe(response.data.meals))
+        // .then(response => response.json())
+        .then(result => setRecipe(result.data.meals))
   }
 
   const getSearch = (event) => {

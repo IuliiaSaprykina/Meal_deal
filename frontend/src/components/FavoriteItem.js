@@ -1,42 +1,22 @@
-import React, { useState } from "react";
-import ReactCardFlip from 'react-card-flip';
+import React from "react";
+import FavoriteCard from "./FavoriteCard"
 
-export default function FavoriteItem (props) {
+export default function FavoriteItem ({ showFavorites, deleteFavorite, favorites }) {
 
-    const showFavorite = props.showFavorite
-
-    const [isFlipped, setIsFlipped] = useState(false);
-    const handleClick = () => {
-        setIsFlipped(!isFlipped);
-    }
-    // console.log(props)
-    // console.log(props.recipes)
-    // const {favorite} = props;
-    // const { recipes } = props.recipes;
-    // console.log("favorite:", favorite)    
-    // console.log("recipes:", recipes)
-    // console.log("props:", props)
-
-    // const lookThroughRecipes = props.recipes.filter(recipe => recipe.id === props.recipe_id)
-    // console.log(lookThroughRecipes)
-    const {strMeal, strInstructions, strYoutube, strMealThumb} = props.recipes
+    const getRecipes = showFavorites.map(e => {
+        return e.recipes
+    })
     
+    let recipeArr = []
+    const getInfo = getRecipes.forEach(e=> {
+        return recipeArr = e
+    })
 
+    const getRecipeInfo = recipeArr.map((el, i) => <FavoriteCard key={i} {...el} deleteFavorite={deleteFavorite} favorites={favorites}/>)
+   
     return(
-        <ReactCardFlip isFlipped={isFlipped} fliDirection="vertical">
-        <div>
-            <div className="front-recipe-card" onClick={handleClick}>
-                {/* <button className="add-recipe" onClick={handleRecipeToFavorites}>Add to favorite</button> */}
-                <h4>{strMeal}</h4>
-                <img className="recipe-card-image" src={strMealThumb} alt=""/>
-            </div>
-        </div>
-        <div>
-            <div className="back-recipe-card" onClick={handleClick}>
-                <p>{strInstructions}</p>
-                <a href={strYoutube} target="_blank">Go to watch video</a>
-            </div>
-        </div>
-        </ReactCardFlip>
+        <div className="favorites-list">
+            {getRecipeInfo}
+        </div> 
     )
 }

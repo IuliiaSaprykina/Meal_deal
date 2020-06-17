@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import ReactCardFlip from 'react-card-flip';
 
 
-export default function RecipeCard ({recipe, addRecipe, addToFavorite}) {
-    const {strMeal, strInstructions, strYoutube, strMealThumb} = recipe
-    // let x = Math.round(calories, 0.5)
+export default function RecipeCard ({recipe, addRecipe}) {
+    const {strMeal, strInstructions, strYoutube, strMealThumb, strIngredient1} = recipe
     const [isFlipped, setIsFlipped] = useState(false);
     const handleClick = () => {
         setIsFlipped(!isFlipped);
@@ -12,9 +11,8 @@ export default function RecipeCard ({recipe, addRecipe, addToFavorite}) {
 
     const handleRecipeToFavorites = (event) => {
         event.stopPropagation();
+        console.log(recipe)
         addRecipe(recipe);
-        // console.log(recipe)
-
     }
 
     return(
@@ -29,7 +27,8 @@ export default function RecipeCard ({recipe, addRecipe, addToFavorite}) {
             <div>
                 <div className="back-recipe-card" onClick={handleClick}>
                     <p>{strInstructions}</p>
-                    <a href={strYoutube} target="_blank">Go to watch video</a>
+                    <p>{strIngredient1}</p>
+                    <a href={strYoutube} target="_blank" rel="noopener noreferrer">Go to watch video</a>
                 </div>
             </div>
         </ReactCardFlip>

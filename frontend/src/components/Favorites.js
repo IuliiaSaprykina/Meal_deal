@@ -1,20 +1,19 @@
 import React from "react";
-import FavoriteItem from "./FavoriteItem"
+import FavoriteItem from "./FavoriteItem";
+import { NavLink } from "react-router-dom";
 
 
-export default function Favorites ({favorites, recipes, users}) {
+export default function Favorites ({users, deleteFavorite, favorites}) {
+
     const userId = localStorage.getItem("user_id")
-    
-    console.log("favorites: ", favorites)
-    // console.log("recipes: ", recipes)
-    // console.log("users: ", users)
-    const showFavorites = favorites.filter(favorite => favorite.user_id === +userId)
-    // <FavoriteItem {...favorite} recipes={recipes} users={users}/>})
-    console.log(showFavorites)
+    const showFavorites = users.filter(user => user.id === +userId)
+    // console.log(showFavorites)
+   
     return(
             <div className="favorites-list"> 
-                <h3>These your favorite meals</h3>
-                <FavoriteItem showFavorites = {showFavorites}  recipes={recipes}/>
+                <h3>Your favorite meals</h3>
+                <li className="go-back-link"><NavLink to="/">Go Back</NavLink></li>
+                <FavoriteItem showFavorites = {showFavorites} favorites={favorites} deleteFavorite={deleteFavorite}/>
             </div>
     )
 
