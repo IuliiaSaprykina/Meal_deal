@@ -47,10 +47,8 @@ class App extends Component {
   }
 
   componentDidMount(){
-    // this.getRecipes();
     this.getFavorites();
     this.validateUser();
-    // this.getUser();
   }
 
   validateUser = () => {
@@ -70,22 +68,14 @@ class App extends Component {
             recipes: response.user.user.recipes
           })
         })
-        // .then(response => console.log(response.user.user.recipes))
     }
   }
-
-  // getRecipes = () => {
-  //   fetch(recipesUrl)
-  //   .then(response => response.json())
-  //   .then(recipes => this.setState({recipes}))
-  // }
 
   getFavorites = () => {
     fetch(favoritesUrl, { 
       method: 'GET',
       headers: {
         'Content-type' : 'application/json',
-        // 'Accept': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem("token")}`
       }
     })
@@ -116,7 +106,6 @@ class App extends Component {
       }
     })
     .then(() => this.props.history.push('/'))
-    // .then(response => console.log(response.user.user.id))
   }
 
   signup = (user) => {
@@ -138,11 +127,6 @@ class App extends Component {
     })
     .then(() => this.props.history.push('/'))
   }
-  // getUser = () => {
-  //   fetch(usersUrl)
-  //     .then(response => response.json())
-  //     .then(users => this.setState({users}))
-  // }
 
   addToFavorite = (recipeId, userId) => {
     const newFavorite = {
@@ -151,8 +135,6 @@ class App extends Component {
         user_id: +userId
       }
     }
-    
-    // this.setState({favorites: [...this.state.favorites, newFavorite]})
 
     fetch(favoritesUrl, {
       method: 'POST',

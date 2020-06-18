@@ -11,7 +11,6 @@ export default function RecipeCard ({recipe, addRecipe}) {
 
     const handleRecipeToFavorites = (event) => {
         event.stopPropagation();
-        console.log(recipe)
         addRecipe(recipe);
     }
 
@@ -26,7 +25,6 @@ export default function RecipeCard ({recipe, addRecipe}) {
             </div>
             <div>
                 <div className="back-recipe-card" onClick={handleClick}>
-                    {/* <p>{strInstructions}</p> */}
                     <p className="ingredients">Ingredients: {strIngredient1} {strMeasure1} <br></br>
                      {strIngredient2} {strMeasure2} <br></br>
                      {strIngredient3} {strMeasure3} <br></br>
@@ -48,7 +46,6 @@ export default function RecipeCard ({recipe, addRecipe}) {
                      {strIngredient19} {strMeasure19} <br></br>
                      {strIngredient20} {strMeasure20} <br></br>
                     </p>
-                    {/* <a href={strYoutube} target="_blank" rel="noopener noreferrer">Go to watch video</a> */}
                 </div>
             </div>
         </ReactCardFlip>
