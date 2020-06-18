@@ -9,6 +9,7 @@ export default function Home (props){
   const [recipe, setRecipe] = useState([]);
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('');
+  const [alert, setAlert] = useState('');
   const mealUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
 
   useEffect(() => {
@@ -19,7 +20,13 @@ export default function Home (props){
   const getRecipe = () => {
       axios.get(mealUrl)
         // .then(response => response.json())
-        .then(result => setRecipe(result.data.meals))
+        .then(result => {
+          if(result === null){
+            setAlert("No such result")
+          } else {
+            setRecipe(result.data.meals)
+          }
+        })
   }
 
   const getSearch = (event) => {
@@ -41,6 +48,7 @@ export default function Home (props){
               <input type="text" value={search} onChange={getSearch}/>
               <button type="submit" >Search</button>
             </form>
+        { alert ? <p>{alert}</p> : null}
         <RecipeList recipes={recipe} {...props}/>
         <ScrollUpButton />
       </div>

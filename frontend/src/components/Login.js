@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom"
 
-const loginUrl ="http://localhost:3000/login/";
+// const loginUrl ="http://localhost:3000/login/";
 
 const initailizeState = {
     username: "",

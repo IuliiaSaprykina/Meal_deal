@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-const usersUrl = "http://localhost:3000/users/"
+// const usersUrl = "http://localhost:3000/users/"
 
 const initailizeState = {
     username: "",
