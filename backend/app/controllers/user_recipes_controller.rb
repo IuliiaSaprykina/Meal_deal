@@ -1,5 +1,6 @@
 class UserRecipesController < ApplicationController 
-    before_action :authenticate, only: [:index, :create]
+    # before_action :authenticate, only: [:index, :create]
+    skip_before_action :authorized, only: [:create, :destroy]
 
     def index
         @user_recipes = UserRecipe.all

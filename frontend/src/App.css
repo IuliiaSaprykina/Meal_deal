@@ -216,19 +216,20 @@ nav ul a{
     font-size: 20px;
 }
 
-.favorites-list h3 {
+.favorite h3 {
     text-align: center;
     color: wheat;
     position: relative;
-    left: 30%;
+    left: 50%;
     font-size: 80px;
 }
 
-.go-back-link a{
+.go-back{
+    font-size: 20px;
     color: wheat;
     position: absolute;
     left: 10%;
-    top: 15%;
+    top: 20%;
 }
 
 .player{

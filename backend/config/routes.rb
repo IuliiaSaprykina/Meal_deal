@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :recipes, only: [:create, :index, :destroy, :update, :show]
   post "login", to: "authentication#login"
   resources :user_recipes, only: [:index, :create, :destroy]
+  get "/profile", to: "users#profile"
 end
