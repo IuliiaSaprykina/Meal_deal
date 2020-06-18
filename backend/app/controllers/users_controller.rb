@@ -57,7 +57,7 @@ skip_before_action :authorized, only: [:create]
             @token = encode_token(user_id: @user.id)
             render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
         else
-            render json: { error: 'failed to create user' }, status: :not_acceptable
+            render json: { error: 'This user already exists' }, status: :not_acceptable
         end
     end
 

@@ -19,7 +19,6 @@ export default function Home (props){
 
   const getRecipe = () => {
       axios.get(mealUrl)
-        // .then(response => response.json())
         .then(result => {
           if(result === null){
             setAlert("No such result")

@@ -1,11 +1,8 @@
 import React, { Component } from "react"
 
-// const usersUrl = "http://localhost:3000/users/"
-
 const initailizeState = {
     username: "",
-    password: "", 
-    // error: ""
+    password: "",
 }
 
 export default class Signup extends Component {
@@ -19,33 +16,6 @@ export default class Signup extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.signup(this.state)
-           
-
-
-
-        // fetch(usersUrl, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-type" : "application/json",
-        //         'Authorization': `Bearer ${localStorage.getItem("token")}`
-        //     },
-        //     body: JSON.stringify({user: this.state})
-        // })
-        //     .then(response => {
-        //         if (response.status === 200) {
-        //             this.setState({error: ""})
-        //             return response.json()
-        //         } else if (response.status === 401){
-        //             throw new Error("This user already exists")
-        //         }
-        //     })
-        //     .then(result => {
-        //         localStorage.setItem("token", result.token)
-        //         this.setState({initailizeState})
-        //     })
-        //     .then(() => this.props.history.push('/login'))
-        //     // .then(console.log(this.props.history))
-        //     .catch(error => this.setState({error: error.message}));
         this.setState(initailizeState);
     
     }
@@ -74,7 +44,6 @@ export default class Signup extends Component {
                     onChange={this.handleChange}
                     />
                     { this.props.alert ? <p>{this.props.alert}</p> : null}
-                    {/* { this.state.error ? <p>{this.state.error}</p> : null} */}
                     <input type="submit" value="Sign Up" />
                 </form>
             </>

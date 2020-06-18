@@ -1,20 +1,9 @@
 import React, { useState } from "react";
 import ReactCardFlip from 'react-card-flip';
 import ReactPlayer from "react-player";
-// import YouTube from 'react-youtube';
-// import "node_modules/video-react/dist/video-react.css"; 
+
 
 export default function FavoriteItem ({id, strMeal, strInstructions, strYoutube, strMealThumb, deleteFavorite, favorites, strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5, strIngredient6, strIngredient7, strIngredient8, strIngredient9, strIngredient10, strIngredient11, strIngredient12, strIngredient13, strIngredient14, strIngredient15, strIngredient16, strIngredient17, strIngredient18, strIngredient19, strIngredient20, strMeasure1, strMeasure2, strMeasure3, strMeasure4, strMeasure5, strMeasure6, strMeasure7, strMeasure8, strMeasure9, strMeasure10, strMeasure11, strMeasure12, strMeasure13, strMeasure14, strMeasure15, strMeasure16, strMeasure17, strMeasure18, strMeasure19, strMeasure20}) {
-
-    // const favoriteChoose = favorites.filter(fav => fav.recipe_id === id)
-    // console.log(favoriteChoose)
-    // window.location.reload();
-    // window.opener.postMessage(
-    //     {
-    //       status: 'success'
-    //     },
-    //     'http://my-server-domain:3000'
-    //   );
 
     const [isFlipped, setIsFlipped] = useState(false);
     const handleClick = () => {
@@ -25,27 +14,9 @@ export default function FavoriteItem ({id, strMeal, strInstructions, strYoutube,
         window.location.reload();
         event.stopPropagation();
         const favoriteChoose = favorites.filter(fav => fav.recipe_id === id)
-        // const favoriteArr = favoriteChoose.map(e => e[0])
-        console.log(favoriteChoose[0].id)
-        // console.log(favoriteChoose.id)
         deleteFavorite(favoriteChoose[0].id);
         window.location.reload();
     }
-
-    // const opts = {
-    //     height: '390',
-    //     width: '640',
-    //     playerVars: {
-    //       // https://developers.google.com/youtube/player_parameters
-    //       autoplay: 1,
-    //     },
-    //   };
-
-    // let video_id = strYoutube.split('v=')[1];
-    // let ampersandPosition = video_id.indexOf('&');
-    // if(ampersandPosition != -1) {
-    //     video_id = video_id.substring(0, ampersandPosition);
-    // }   
 
     return(
         <ReactCardFlip isFlipped={isFlipped} fliDirection="vertical">
@@ -81,7 +52,6 @@ export default function FavoriteItem ({id, strMeal, strInstructions, strYoutube,
                     className="player"
                     url={strYoutube}
                 />
-                {/* <video src={strYoutube} width="600" height="300" controls="controls" autoplay="true" /> */}
                 <a href={strYoutube} target="_blank" rel="noopener noreferrer">Go to watch video</a>
             </div>
         </ReactCardFlip>

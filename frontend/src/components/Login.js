@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom"
 
-// const loginUrl ="http://localhost:3000/login/";
-
 const initailizeState = {
     username: "",
-    password: "",
-    // error: ""
-   
+    password: ""
 }
 
 
@@ -26,31 +22,6 @@ export default class Login extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.login(this.state)
-        
-        // fetch(loginUrl, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-type" : "application/json"
-        //     },
-        //     body: JSON.stringify(this.state)
-        // })
-        //     .then(response => {
-        //         if (response.status === 200) {
-        //             this.setState({error: ""})
-        //             return response.json()
-        //         } else if (response.status === 401){
-        //             throw new Error("Check your username or password")
-        //         }
-        //     })
-        //     // .then(result => console.log(result.user_id)
-        //     .then(result => {
-        //         localStorage.setItem("token", result.token);
-        //         localStorage.setItem("user_id", result.user_id);
-        //         this.setState({initailizeState})
-        //     })
-        //     .then(() => this.props.history.push('/'))
-        //     // .then(console.log(this.props.history))
-        //     .catch(error => this.setState({error: error.message}));
         this.setState(initailizeState);
     }
 
@@ -74,8 +45,6 @@ export default class Login extends Component {
                     <Link to="/signup">Create a new user</Link>
                     <input type="submit" id="submit" value="Login"/>
                     { this.props.alert ? <p>{this.props.alert}</p> : null}
-                    {/* { console.log(this.state.error)} */}
-
                 </form>
             </>
         )

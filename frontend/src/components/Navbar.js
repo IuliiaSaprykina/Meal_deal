@@ -10,7 +10,6 @@ export default function Navbar (componentDidMount) {
                 <ul className="right">
                     <li><NavLink to="/login">Home</NavLink></li>
                     <li><NavLink to="/favorites">Favorites</NavLink></li>
-                    {/* <li><NavLink to="/" className="btn btn-floating pink lighten-1">NN</NavLink></li> */}
                 </ul>
             </div>
         
