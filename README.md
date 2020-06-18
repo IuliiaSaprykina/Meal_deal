@@ -17,7 +17,7 @@ I like tasty food, I like eat it and I like to cook something delicious.
 Collect your favorite recipes, watch how to cook it and manage your favorite list.
 
 ## Intro Video
-[Meal Deal on YouTube](https://youtu.be/yR55QixnOYo)
+[Meal Deal on YouTube](https://youtu.be/UGAMtPWHWZ4)
 
 ## Technologies
 * ActiveRecord - version 6.0.2.2
