@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FavoriteItem from "./FavoriteItem";
 import { NavLink } from "react-router-dom";
 
