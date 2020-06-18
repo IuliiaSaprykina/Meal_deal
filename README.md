@@ -27,6 +27,7 @@ Collect your favorite recipes, watch how to cook it and manage your favorite lis
 * React 
 * React-FlipCard
 * React-PlayVideo
+* Intagrated API 
 
 ## Setup
 To run this project, install it locally by cloning the GitHub repository and typing:
