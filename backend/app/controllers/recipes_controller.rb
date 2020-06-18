@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-    # before_action :authenticate, only: [:index, :create]
+    skip_before_action :authorized
 
     def index
         @recipes = Recipe.all
